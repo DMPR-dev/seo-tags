@@ -1,0 +1,37 @@
+.seo-tags-details > summary
+{
+	padding: 15px;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+    transition: .3s;
+}
+.seo-tags-details > summary:focus
+{
+	box-shadow: none;
+	outline: 0;
+}
+.seo-tags-details > summary:hover
+{
+	border: 1px solid #00a0d2;
+}
+.seo-tags-details[open] > summary
+{
+	border: 1px solid #00a0d2;
+	border-bottom: 0;
+	margin-bottom: 0px;
+}
+.seo-tags-details[open] > .seo-tags-details-content
+{
+	border-top-color: #00a0d2;
+	margin-bottom: 5px;
+}
+.seo-tags-details-content
+{
+	transition: .3s;
+	border: 1px solid #ddd;
+    padding: 15px;
+}
+.seo-tags-details-content > label
+{
+	margin-bottom: 0px;
+}
