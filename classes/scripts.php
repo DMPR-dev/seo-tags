@@ -37,6 +37,8 @@ class Scripts
 
 	public static function IMGUpload()
 	{
+		wp_enqueue_media();
+
 		wp_register_script( 'seo-tag-img-upload-script', self::$plugin_url  . '/assets/admin/js/image-upload.js', array( 'jquery' ) );
 		wp_localize_script( 'seo-tag-img-upload-script', 'seo_tags_image_input', array(
 			'title'		=> __( 'Select Image' ),
