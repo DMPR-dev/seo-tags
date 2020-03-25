@@ -91,11 +91,15 @@ class Actions
 		if( strlen( $content ) === 0 )
 		{
 			// fallback, use default option if it's set
-
 			$content = sanitize_text_field( get_option( $tag['name'] ) );
 		}
 
-		if( strlen( $content ) > 0 && ( $tag["property"] === 'og:image' && filter_var( $content, FILTER_VALIDATE_URL ) !== FALSE || $tag["property"] !== 'og:image' ) )
+		if( $tag["property"] === 'og:image' && intval( $content ) > 0 )
+		{
+			$content = wp_get_attachment_image_url( $content, 'large' );
+		}
+
+		if( strlen( $content ) > 0 && ( ( $tag["property"] === 'og:image' && strpos( $content, 'http' ) !== FALSE ) || $tag["property"] !== 'og:image' ) )
 		{
 			?>
 				<meta property="<?php echo $tag['property']; ?>" <?php echo $tag['property'] == 'copyright' ? 'lang="' .sanitize_text_field( get_post_meta( $post->ID, 'seo-tags-copyright-lang', true ) ) . '"' : '' ?> content="<?php echo $content; ?>" />
